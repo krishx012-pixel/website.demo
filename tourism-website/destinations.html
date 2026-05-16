@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — WanderIndia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Wander<span>India</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="destinations.html">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+      </ul>
+      <div class="d-flex gap-2" id="authButtons">
+        <a href="login.html"    class="nav-link btn-nav-login">Login</a>
+        <a href="register.html" class="nav-link btn-nav-register">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="dest-page-hero">
+  <div class="dest-page-hero-content">
+    <span class="section-badge" style="background:rgba(240,165,0,0.15);color:var(--accent);">500+ Places</span>
+    <h1 class="section-title" style="color:#fff;margin-top:12px;">Explore <span style="color:var(--accent);font-style:italic;">Destinations</span></h1>
+    <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;max-width:500px;margin:0 auto;">Filter by category or search to discover your next dream destination across India.</p>
+  </div>
+</section>
+
+<!-- SEARCH + FILTER -->
+<section style="background:#fff;padding:36px 0 0;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <!-- Search -->
+    <div class="search-box mb-4">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="destSearch" placeholder="Search destinations, locations…" />
+    </div>
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-cat="all">🗺️ All</button>
+      <button class="filter-btn" data-cat="adventure">🏔️ Adventure</button>
+      <button class="filter-btn" data-cat="nature">🌿 Nature</button>
+      <button class="filter-btn" data-cat="wildlife">🦁 Wildlife</button>
+      <button class="filter-btn" data-cat="beach">🏖️ Beach</button>
+      <button class="filter-btn" data-cat="cultural">🏛️ Cultural</button>
+      <button class="filter-btn" data-cat="hills">⛰️ Hill Stations</button>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS GRID -->
+<section class="destinations-section" style="padding-top:50px;">
+  <div class="container">
+    <div class="row g-4" id="destGrid"></div>
+    <!-- No results -->
+    <div class="no-results" id="noResults">
+      <p style="font-size:4rem;margin-bottom:8px;">🔍</p>
+      <h5 style="color:var(--text-dark);font-family:'Playfair Display',serif;">No destinations found</h5>
+      <p>Try a different search term or category filter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <div class="footer-brand">Wander<span>India</span></div>
+        <p class="footer-desc">Your complete guide to exploring the incredible beauty of India — one destination at a time.</p>
+        <div class="social-links mt-3">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="footer-heading">Categories</div>
+        <ul class="footer-links">
+          <li><a href="#">🏔️ Adventure</a></li>
+          <li><a href="#">🌿 Nature</a></li>
+          <li><a href="#">🦁 Wildlife</a></li>
+          <li><a href="#">🏖️ Beach</a></li>
+          <li><a href="#">🏛️ Cultural</a></li>
+          <li><a href="#">⛰️ Hill Stations</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 WanderIndia. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="toastContainer" class="toast-container-custom"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/destinations.js"></script>
+<script>
+  // Read URL param ?cat= and pre-select filter
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    if (cat) {
+      const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
+      if (btn) btn.click();
+    }
+  });
+</script>
+</body>
+</html>

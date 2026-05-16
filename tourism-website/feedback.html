@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Feedback — WanderIndia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Wander<span>India</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+      </ul>
+      <div class="d-flex gap-2" id="authButtons">
+        <a href="login.html"    class="nav-link btn-nav-login">Login</a>
+        <a href="register.html" class="nav-link btn-nav-register">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- FEEDBACK HERO -->
+<section class="feedback-hero">
+  <div class="feedback-hero-content">
+    <span class="section-badge" style="background:rgba(240,165,0,0.15);color:var(--accent);">Your Voice Matters</span>
+    <h1 class="section-title" style="color:#fff;margin-top:12px;">Share Your <span style="color:var(--accent);font-style:italic;">Experience</span></h1>
+    <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;max-width:500px;margin:0 auto;">Help fellow travellers by sharing your honest experience. Every review makes our community better.</p>
+  </div>
+</section>
+
+<!-- FEEDBACK FORM -->
+<section style="padding-bottom:80px;background:#f8faf9;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- FORM CARD -->
+        <div id="feedbackFormSection">
+          <div class="feedback-card">
+
+            <form id="feedbackForm" novalidate>
+
+              <div class="row">
+                <!-- Name -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="fbName">Your Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="fbName" placeholder="Enter your name" />
+                  <div class="invalid-feedback">Name is required (min 2 characters).</div>
+                  <div class="valid-feedback">✓</div>
+                </div>
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="fbEmail">Email Address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="fbEmail" placeholder="you@example.com" />
+                  <div class="invalid-feedback">Enter a valid email address.</div>
+                  <div class="valid-feedback">✓</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Destination -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="fbDest">Destination Visited <span class="text-danger">*</span></label>
+                  <select class="form-select" id="fbDest">
+                    <option value="">Select destination…</option>
+                    <optgroup label="🏔️ Adventure">
+                      <option>Rishikesh</option>
+                      <option>Manali</option>
+                      <option>Spiti Valley</option>
+                      <option>Zanskar</option>
+                    </optgroup>
+                    <optgroup label="🌿 Nature">
+                      <option>Wayanad</option>
+                      <option>Coorg</option>
+                      <option>Munnar</option>
+                      <option>Cherrapunji</option>
+                    </optgroup>
+                    <optgroup label="🦁 Wildlife">
+                      <option>Jim Corbett</option>
+                      <option>Ranthambore</option>
+                      <option>Kaziranga</option>
+                      <option>Sundarbans</option>
+                    </optgroup>
+                    <optgroup label="🏖️ Beach">
+                      <option>Goa</option>
+                      <option>Andaman Islands</option>
+                      <option>Kovalam</option>
+                      <option>Lakshadweep</option>
+                    </optgroup>
+                    <optgroup label="🏛️ Cultural">
+                      <option>Hampi</option>
+                      <option>Varanasi</option>
+                      <option>Jaipur</option>
+                      <option>Khajuraho</option>
+                    </optgroup>
+                    <optgroup label="⛰️ Hill Stations">
+                      <option>Darjeeling</option>
+                      <option>Ooty</option>
+                      <option>Shimla</option>
+                      <option>Mussoorie</option>
+                    </optgroup>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a destination.</div>
+                </div>
+                <!-- Visit Date -->
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="fbDate">Date of Visit <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" id="fbDate" />
+                  <div class="invalid-feedback">Please enter a valid past visit date.</div>
+                  <div class="valid-feedback">✓</div>
+                </div>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="mb-4">
+                <label class="form-label d-block">Overall Rating <span class="text-danger">*</span></label>
+                <div class="star-input" id="starRating">
+                  <input type="radio" id="s5" name="rating" value="5" /><label for="s5" title="Excellent">★</label>
+                  <input type="radio" id="s4" name="rating" value="4" /><label for="s4" title="Good">★</label>
+                  <input type="radio" id="s3" name="rating" value="3" /><label for="s3" title="Average">★</label>
+                  <input type="radio" id="s2" name="rating" value="2" /><label for="s2" title="Poor">★</label>
+                  <input type="radio" id="s1" name="rating" value="1" /><label for="s1" title="Terrible">★</label>
+                </div>
+                <div id="ratingLabels" class="mt-1" style="font-size:0.82rem;color:var(--text-muted);min-height:18px;"></div>
+                <small class="invalid-feedback" id="ratingError" style="display:none;font-size:0.8rem;color:var(--danger);">Please select a star rating.</small>
+              </div>
+
+              <!-- Travel Type -->
+              <div class="mb-3">
+                <label class="form-label">Travel Type</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <input type="radio" class="btn-check" name="travelType" id="tt1" value="Solo" />
+                  <label class="btn btn-outline-success btn-sm rounded-pill" for="tt1">🧍 Solo</label>
+                  <input type="radio" class="btn-check" name="travelType" id="tt2" value="Couple" />
+                  <label class="btn btn-outline-success btn-sm rounded-pill" for="tt2">👫 Couple</label>
+                  <input type="radio" class="btn-check" name="travelType" id="tt3" value="Family" />
+                  <label class="btn btn-outline-success btn-sm rounded-pill" for="tt3">👨‍👩‍👧 Family</label>
+                  <input type="radio" class="btn-check" name="travelType" id="tt4" value="Friends" />
+                  <label class="btn btn-outline-success btn-sm rounded-pill" for="tt4">👥 Friends</label>
+                </div>
+              </div>
+
+              <!-- Comment -->
+              <div class="mb-4">
+                <label class="form-label" for="fbComment">Your Experience <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="fbComment" rows="5" maxlength="500" placeholder="Tell us about your experience — what did you love? What could be improved? (min 20 characters)"></textarea>
+                <div class="invalid-feedback">Please share your experience (min 20, max 500 characters).</div>
+                <div class="valid-feedback">✓ Great feedback!</div>
+                <div class="char-count" id="charCount">0/500</div>
+              </div>
+
+              <!-- Recommend -->
+              <div class="mb-4">
+                <label class="form-label">Would you recommend this destination?</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="recommend" id="recYes" value="Yes" />
+                    <label class="form-check-label" for="recYes">👍 Yes, definitely!</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="recommend" id="recNo" value="No" />
+                    <label class="form-check-label" for="recNo">👎 Not really.</label>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary-custom">🌟 Submit Feedback</button>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div id="feedbackSuccess" style="display:none;">
+          <div class="feedback-card text-center py-5">
+            <div style="font-size:5rem;margin-bottom:16px;">🎉</div>
+            <h2 class="auth-title">Thank You, <span id="successName" style="color:var(--primary);"></span>!</h2>
+            <p style="color:var(--text-muted);font-size:1.05rem;max-width:400px;margin:0 auto 30px;">
+              Your feedback has been submitted successfully. It helps thousands of travellers make better decisions!
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="destinations.html" class="btn-hero-primary" style="text-decoration:none;">🌍 Explore More</a>
+              <button onclick="document.getElementById('feedbackSuccess').style.display='none'; document.getElementById('feedbackFormSection').style.display='block'; document.getElementById('feedbackForm').reset(); document.getElementById('charCount').textContent='0/500';" class="btn-hero-outline" style="color:var(--text-dark);border-color:var(--border);">📝 Submit Another</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="footer-brand">Wander<span>India</span></div>
+        <p class="footer-desc">Your complete guide to exploring the incredible beauty of India — one destination at a time.</p>
+      </div>
+      <div class="col-md-3">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <div class="footer-heading">Social</div>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 WanderIndia. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="toastContainer" class="toast-container-custom"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/feedback.js"></script>
+<script>
+  // Star label hints
+  const labels = { 1:'😞 Terrible', 2:'😐 Poor', 3:'🙂 Average', 4:'😊 Good', 5:'🤩 Excellent!' };
+  document.querySelectorAll('input[name="rating"]').forEach(inp => {
+    inp.addEventListener('change', () => {
+      document.getElementById('ratingLabels').textContent = labels[inp.value] || '';
+    });
+  });
+  // Show ratingError as block not flex
+  document.getElementById('ratingError').style.display = 'none';
+  document.getElementById('ratingError').classList.add = function(cls) {
+    if (cls === 'show') this.style.display = 'block';
+  };
+  document.getElementById('ratingError').classList.remove = function(cls) {
+    if (cls === 'show') this.style.display = 'none';
+  };
+</script>
+</body>
+</html>
